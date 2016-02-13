@@ -2,14 +2,13 @@ DESCRIPTION = "USB DVB driver for EM28xx chipset"
 
 require conf/license/openpli-gplv2.inc
 
-DVBPROVIDER ?= "kernel"
+inherit allarch
 
 RDEPENDS_${PN} = " \
-	${DVBPROVIDER}-module-em28xx-dvb \
+	kernel-module-em28xx-dvb \
 	firmware-dvb-fe-tda10071 \
 	"
 
-PV = "1.0"
-PR = "r0"
+PV = "2"
 
 ALLOW_EMPTY_${PN} = "1"

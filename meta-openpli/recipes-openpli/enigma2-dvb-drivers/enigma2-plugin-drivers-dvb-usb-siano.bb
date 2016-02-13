@@ -2,17 +2,16 @@ DESCRIPTION = "USB DVB driver for Siano chipset"
 
 require conf/license/openpli-gplv2.inc
 
-DVBPROVIDER ?= "kernel"
+inherit allarch
 
 RDEPENDS_${PN} = " \
-	${DVBPROVIDER}-module-smsusb \
-	${DVBPROVIDER}-module-smsdvb \
+	kernel-module-smsusb \
+	kernel-module-smsdvb \
 	firmware-dvb-siano \
 	firmware-dvb-nova-12mhz-b0 \
 	firmware-isdbt-nova-12mhz-b0 \
 	"
 
-PV = "1.0"
-PR = "r5"
+PV = "2"
 
 ALLOW_EMPTY_${PN} = "1"

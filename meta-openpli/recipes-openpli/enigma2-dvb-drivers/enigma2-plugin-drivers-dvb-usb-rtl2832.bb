@@ -1,24 +1,22 @@
-SUMMARY = "USB DVB driver for Realtek RTL2832 chipset"
-PACKAGE_ARCH = "all"
+DESCRIPTION = "USB DVB driver for Realtek RTL2832 chipset"
 
 require conf/license/openpli-gplv2.inc
 
-DVBPROVIDER ?= "kernel"
+inherit allarch
 
 RRECOMMENDS_${PN} = " \
-    ${DVBPROVIDER}-module-dvb-usb-rtl2832 \
-    ${DVBPROVIDER}-module-dvb-usb-rtl28xxu \
-    ${DVBPROVIDER}-module-rtl2832 \
-    ${DVBPROVIDER}-module-e4000 \
-    ${DVBPROVIDER}-module-r820t \
-    ${DVBPROVIDER}-module-mt2266 \
-    ${DVBPROVIDER}-module-fc0013 \
+    kernel-module-dvb-usb-rtl2832 \
+    kernel-module-dvb-usb-rtl28xxu \
+    kernel-module-rtl2832 \
+    kernel-module-e4000 \
+    kernel-module-r820t \
+    kernel-module-mt2266 \
+    kernel-module-fc0013 \
     firmware-dvb-usb-af9035-01 \
     firmware-dvb-usb-af9035-02 \
     firmware-dvb-usb-af9015 \
     "
 
-PV = "1.0"
-PR = "r0"
+PV = "2"
 
 ALLOW_EMPTY_${PN} = "1"

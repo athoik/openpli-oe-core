@@ -2,6 +2,8 @@ DESCRIPTION = "meta file for USB DVB drivers"
 
 require conf/license/openpli-gplv2.inc
 
+inherit allarch
+
 DEPENDS = "\
 	enigma2-plugin-drivers-dvb-usb-dib0700 \
 	enigma2-plugin-drivers-dvb-usb-af9015 \
@@ -16,4 +18,4 @@ DEPENDS = "\
 	enigma2-plugin-drivers-dvb-usb-rtl2832 \
 	"
 
-PR = "r0"
+PV = "2"
