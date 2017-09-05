@@ -1,0 +1,30 @@
+diff --git a/configure.ac b/configure.ac
+index 2f20023..e4faea9 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -718,6 +718,13 @@ if test "$with_gpu" = "v3dplatform"; then
+      AC_DEFINE([HAS_V3DVISABLE], [1], [Whether to use EGLNative visable workaround.])
+ fi
+ 
++if test "$with_gpu" = "v3dvuplus"; then
++     use_openmax=no
++     USE_OMXLIB=0; AC_DEFINE([HAVE_OMXLIB],[0],["Define to 1 if OMX libs is enabled"])
++     USE_V3D=1; AC_DEFINE([HAS_V3D],[1],["Define to 1 if V3D GPU"])
++     AC_DEFINE([HAS_BRCMCPU], [1], [Whether to use Broadcom platform workaround.])
++fi
++
+ if test "$with_gpu" = "mali"; then
+      use_openmax=no
+      USE_OMXLIB=0; AC_DEFINE([HAVE_OMXLIB],[0],["Define to 1 if OMX libs is enabled"])
+@@ -995,6 +1002,11 @@ if test "$use_gles" = "yes"; then
+     AC_DEFINE([HAVE_LIBGLESV2],[1],["Define to 1 if you have the `GLESv2' library (-lGLESv2)."])
+     AC_MSG_RESULT(== WARNING: OpenGLES support is assumed.)
+     LIBS="$LIBS -lEGL -lGLESv2 -lv3dplatform"
++   elif test "$with_gpu" = "v3dvuplus"; then
++    AC_DEFINE([HAVE_LIBEGL],[1],["Define to 1 if you have the `EGL' library (-lEGL)."])
++    AC_DEFINE([HAVE_LIBGLESV2],[1],["Define to 1 if you have the `GLESv2' library (-lGLESv2)."])
++    AC_MSG_RESULT(== WARNING: OpenGLES support is assumed.)
++    LIBS="$LIBS -lEGL -lGLESv2"
+   else
+     AC_CHECK_LIB([EGL],   [main],, AC_MSG_ERROR($missing_library))
+     AC_CHECK_LIB([GLESv2],[main],, AC_MSG_ERROR($missing_library))
